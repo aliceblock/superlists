@@ -1,5 +1,6 @@
 from selenium import webdriver
 import unittest
+import warnings
 
 browser = webdriver.PhantomJS()
 browser.get('http://localhost:8000')
@@ -20,4 +21,9 @@ class NewVisitorTest(unittest.TestCase):
         self.fail('Finish the test!')
 
 if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+    # PYT2.0
+    with warnings.catch_warnings(record=True):
+        unittest.main()
+        
+    # PYT3.0
+    # unittest.main(warnings='ignore')
